@@ -6,13 +6,22 @@ settings:
 services:
   api:
     from: "node:6"
+    ports:
+      - 3500:3500
     roles:
       - AAROC.glibrary-role
+    working_dir: /opt/glibrary/server/
     links:
       - db
-    command: ["forever","start","server/server.js"]
+    command: ["forever","/opt/glibrary/server/server.js"]
+    depends_on:
+      - db
   db:
     from: "mongo"
+    ports:
+      - 27017:27107
+    volumes:
+      - /data/db:/data/db
 registries:
   quay:
     url: https://quay.io
