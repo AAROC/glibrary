@@ -1,4 +1,20 @@
-language: node_js
-node_js:
-- '0.11'
-- '0.10'
+language: python
+python:
+- '2.7'
+- pypy
+sudo: true
+addons:
+  apt:
+    packages:
+    - python-pip
+install:
+- pip install ansible-container
+- ansible --version
+- printf '[defaults]\nroles_path=../' >ansible.cfg
+script:
+- ansible-container build 
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+env:
+  global:
+    secure: vIna4i1AndyOa4AUgu7qAnc7RWSHFc2hKK/tjd8OHkq3yMek64HZQqs6V1SxmgEO4vTLKh+XIOPBbJiLJx1INxiiluzD63bgaIQhsX0cUeQPhC75Ujfavt0Rs1p/z9DpQk4qijnKCUlzfADiJnq1qCYAgzxsOe+zwFPsIV8tlVWw8P0UeccSBCtNH5O6c0lGbO1H32eknqsVhESz5G7QigHzEkx8dLvA48Nk5yi7gNeZLzVdbGNx4f3EeLqpefoQken69vCueWmnGBk5vO+cdJnmg01GnGpmF+yhsUc+jjT3crJtgwIol7ai1vnA75ZSodJN9d5rOWqNDZ8D2x4w3H3OSjsd9dwNFczk6OMYHjF2z8vzYmxFxDMX4zKS0bLirBTfwKmSwgO5zebweqsrQyiOjG827+crw+4y1WW2PMfzJtnrVpvI3HSNYxw3yeaEXPJtnobvb5s6rqlGngjcwB0tDDD1xRrIwRXL3IjXiKVgWTEJgJzmabcIGllxrdbHnOuLGZWtGvNHKgiFnkW5lgYiSINUo3N4ysXqCAvL9VcjeH76THMkf+EPd3oBwPzGYHLY95spkFSboXl70kfgTOuORb/oJ577FmEJlY1/X+kQU4mUSDS41da6TNZNAIj0g46yMfLIQyrhteTL1Qmk3BSIFM6OXlPD6sDqwgdaEKs=
