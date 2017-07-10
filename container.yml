@@ -1,0 +1,19 @@
+version: "2"
+settings:
+  conductor:
+    base: centos:7
+  project_name: glibrary
+services:
+  api:
+    from: "node:6"
+    roles:
+      - AAROC.glibrary-role
+    links:
+      - db
+    command: ["forever","start","server/server.js"]
+  db:
+    from: "mongo"
+registries:
+  quay:
+    url: https://quay.io
+    namespace: aaroc
