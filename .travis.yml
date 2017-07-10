@@ -9,10 +9,10 @@ addons:
     - python-pip
 install:
 - pip install ansible-container
-- ansible --version
-- printf '[defaults]\nroles_path=../' >ansible.cfg
+- ansible-container --version
 script:
-- ansible-container build 
+- cd deploy/ansible-container
+- ansible-container build
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
 env:
