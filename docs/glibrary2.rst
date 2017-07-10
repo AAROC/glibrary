@@ -50,6 +50,7 @@ Table of contents
 
    -  `Retrieve related items <#retrieve-related-items>`__
 
+-  `Deployment <#deploy>`__
 -  `Contacts <#contacts>`__
 
 Overview
@@ -871,6 +872,15 @@ Retrieve related items
 
 Retrieve all the items from ``related_collection`` of the given
 ``item_id``.
+
+Deployment
+-------------------
+
+Glibrary is  based on NodeJS and Mongo, with various kinds of storage backend capabilities for the repositories and replicas.
+
+We provide machine-readable deployment using .. __: https://docs.ansible.com/ansible-container
+
+The code for deployment is in ``deploy``. 
 
 Contacts
 --------
