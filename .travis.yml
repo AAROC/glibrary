@@ -9,7 +9,7 @@ addons:
     - python-pip
 install:
 - pip install ansible-container
-- ansible-container --version
+- ansible-container version
 script:
 - cd deploy/ansible-container
 - ansible-container build
